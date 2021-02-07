@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 	
-	public Text highScore; //highscore text
+	public Text highScore; 
 	
-	public int moneyM; //our money
-	public Text myMoney; //money displayed text
+	public static int moneyM;
+	public Text myMoney; 
 	
 	
 	public string leveltoload;
@@ -19,10 +19,8 @@ public class MenuManager : MonoBehaviour
 	public void OptionsManager(bool clicked){
 		if (clicked == true){
 			optionsManager.gameObject.SetActive(clicked);
-			//mainMenu.gameObject.SetActive(false);
 		} else {
 			optionsManager.gameObject.SetActive(clicked);
-			//mainMenu.gameObject.SetActive(true);
 		}
 	}
 	
@@ -53,12 +51,10 @@ public class MenuManager : MonoBehaviour
 	//===================================================
 	
 	
-	public void AddMoney()
+	public static void AddMoney()
 	{
-		
 		moneyM+=500;
 		PlayerPrefs.SetInt("MMoney", moneyM);
-		myMoney.text = PlayerPrefs.GetInt("MMoney").ToString();
 	}
 	
 	
@@ -68,15 +64,13 @@ public class MenuManager : MonoBehaviour
 		Application.targetFrameRate = 60;
 		
 		
-		//on start event
 		if (PlayerPrefs.HasKey("MMoney") == true) {
             myMoney.text = PlayerPrefs.GetInt("MMoney").ToString();
         }
         else {
 			PlayerPrefs.SetInt("MMoney", moneyM);
-            //myMoney.text = "No money";
+            
         }
-		
 		
 		
 		
@@ -87,38 +81,5 @@ public class MenuManager : MonoBehaviour
             highScore.text = "0";
         }
     }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Down Panel ==============================
-	
-	public void DownButton1(){ //power ups
-		Debug.Log("111");
-	}
-	
-	public void DownButton2(){ //social network
-		Debug.Log("222");
-	}
-	
-	public void DownButton3(){ //Shop
-		Debug.Log("333");
-	}
-	
-	public void DownButton4(){ //scoreboard
-		Debug.Log("444");
-	}
-	
-	public void DownButton5(){ //cheat give 5000 coins
-		Debug.Log("555");
-	}
-	
-	//Down Panel END ==============================
 	
 }

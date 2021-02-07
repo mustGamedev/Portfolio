@@ -12,12 +12,10 @@ public class Throw : MonoBehaviour //set on  main spawner
 	private GameObject crossbowClone; //prefabs spawn clone
 	public GameObject crossbowPrefab;
 	
-	
-	
 
     void Start()
     {
-        crossbowClone = Instantiate(crossbowPrefab, transform); //transform.parent
+        crossbowClone = Instantiate(crossbowPrefab, transform);
 		
     }
 
@@ -25,8 +23,8 @@ public class Throw : MonoBehaviour //set on  main spawner
     {
         if(Input.GetMouseButtonDown(0))
 		{
-			GetComponent<ScoreCount>().AddScore(); // +1 to score
-			GetComponent<ScoreCount>().SetScore(); // save score in prefs
+			GetComponent<ScoreCount>().AddScore(); 
+			GetComponent<ScoreCount>().SetScore();
 			GetComponent<UICounter>().DecrementArrow();
 			Debug.Log("Mouse clicked");
 			crossbowClone.transform.parent = null; //null Clone out of spawner before throw

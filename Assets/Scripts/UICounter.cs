@@ -13,9 +13,6 @@ public class UICounter : MonoBehaviour
 	public Sprite normalArrow;
 	public Sprite blackArrow;
 	
-	//public GameObject gmSpawner;
-	
-	
 	
 	void Update()
 	{

@@ -39,7 +39,6 @@ public class PaueseMenuUI : MonoBehaviour
 	public void RestartButton()
 	{
 		SceneManager.LoadScene("SampleScene"); //load first scene
-		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		isFinish = false;
 		ScoreCount.scoreAmount = 0;
 		

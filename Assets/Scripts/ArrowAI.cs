@@ -15,7 +15,6 @@ public class ArrowAI : MonoBehaviour
 		if(other.gameObject.tag == "Center")
 		{
 			GetComponent<ParticleSystem>().Play();
-			//UICounter.DecrementArrow();
 			Debug.Log("HIIITTTTTT");
 			arrowRb.velocity = Vector2.zero; //stop Arrow force on wood
 			transform.parent = other.transform;
@@ -33,7 +32,7 @@ public class ArrowAI : MonoBehaviour
 		
 		if(other.gameObject.tag == "Arrow")
 		{
-			if(other.gameObject.GetComponent<ArrowAI>().isFixed == true) //get script
+			if(other.gameObject.GetComponent<ArrowAI>().isFixed == true)
 			{
 			arrowRb.velocity = Vector2.zero; //stop Arrow force on wood
 			arrowRb.gravityScale = 2;
@@ -56,7 +55,6 @@ public class ArrowAI : MonoBehaviour
 		IEnumerator TestCoroutine()
 		{
 			yield return new WaitForSeconds(0.5f);
-			//Time.timeScale = 0;
 			PaueseMenuUI.isFinish = true;
 		}
 
@@ -71,7 +69,8 @@ public class ArrowAI : MonoBehaviour
 		{
 			other.transform.parent = null; //unglue apple from wood 
 			other.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-			//Destroy(other.gameObject);
+			
+			MenuManager.AddMoney();
 		}
 	}
 	

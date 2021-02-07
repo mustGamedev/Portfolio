@@ -8,6 +8,7 @@ public class ScoreCount : MonoBehaviour
 {
     
 	public Text score, finalScore;
+	
 	public static int scoreAmount;
 	
 	public Text myMoneys;
@@ -15,13 +16,12 @@ public class ScoreCount : MonoBehaviour
 	
     void Start()
     {
-        //scoreAmount = 0;
+        
 		if (SceneManager.GetActiveScene().name == "SampleScene")
 		{
                  scoreAmount = 0;
 				 myMoneys.text = PlayerPrefs.GetInt("MMoney").ToString();
 		} else{
-                 //SceneManager.LoadScene("scene1");
 				 myMoneys.text = PlayerPrefs.GetInt("MMoney").ToString();
 			   }
 		
@@ -30,21 +30,15 @@ public class ScoreCount : MonoBehaviour
 	public void SetScore () 
     {
         PlayerPrefs.SetInt("MScore", scoreAmount);
-        //score.text = PlayerPrefs.GetInt("MScore").ToString();
 		Debug.Log("SCORE SET!!!");
     }
 	
 	
-
-    // Update is called once per frame
     void Update()
     {
-		
-		
-		
-		
         score.text = scoreAmount.ToString();
 		finalScore.text = scoreAmount.ToString();
+		myMoneys.text = PlayerPrefs.GetInt("MMoney").ToString();
     }
 	
 	public void AddScore()
